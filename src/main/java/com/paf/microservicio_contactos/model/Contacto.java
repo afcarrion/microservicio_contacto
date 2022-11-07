@@ -1,13 +1,14 @@
 package com.paf.microservicio_contactos.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
-@Table(name = "contactos")
+@Table(name="contactos")
 @Entity
-public class Contacto {
+@NamedQuery(name="Contacto.findAll", query="SELECT c FROM Contacto c")
+public class Contacto implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @Column(name = "idcontactos", nullable = false)
     private Integer id;
