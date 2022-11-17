@@ -24,14 +24,21 @@ public class AgendaServiceImpl implements AgendaService{
 
     @Override
     public List<Contacto> recuperarContactos() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return dao.devolverContactos();
     }
 
     @Override
-    public void actualizarContacto(Contacto contacto) {
+    public boolean actualizarContacto(Contacto contacto) {
         if(dao.recuperarContacto(contacto.getId())!=null){
             dao.actualizarContacto(contacto);
+            return true;
         }
+        return false;
     }
 
     @Override

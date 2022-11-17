@@ -10,7 +10,7 @@ public interface AgendaService {
 
     List<Contacto> recuperarContactos();
 
-    void actualizarContacto(Contacto contacto);
+    boolean actualizarContacto(Contacto contacto);
 
     boolean eliminarContacto(int idContacto);
 
